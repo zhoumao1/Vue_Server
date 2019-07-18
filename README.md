@@ -38,7 +38,7 @@ npm run serve
 
 **返回数据如下图** 
 
-![](https://i.ibb.co/4wbhNtr/1563417691114.png)
+![返回示例](https://i.ibb.co/4wbhNtr/1563417691114.png)
 
 #### 增加用户
 
@@ -56,3 +56,6 @@ npm run serve
 | user_age    | Number              | 年龄   |
 | user_gender | Enum[0, 1] (男, 女) | 年龄   |
 
+#### 修改用户
+
+**请求类型 :** `POST`
