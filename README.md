@@ -38,7 +38,7 @@ npm run serve
 
 **返回数据如下图** 
 
-![1563417691114](D:\learnersData\Vue_practice\server\assets\1563417691114.png)
+![](https://i.ibb.co/4wbhNtr/1563417691114.png)
 
 #### 增加用户
 
