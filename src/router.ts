@@ -6,7 +6,7 @@ import { Response } from 'express-serve-static-core';
 const router = Router();
 
 // 查询接口说明
-router.get('/', (req: Request, res: Response) => {
+router.get('/api', (req: Request, res: Response) => {
 	let readme = {
 		get: [
 			{
@@ -25,22 +25,57 @@ router.get('/', (req: Request, res: Response) => {
 		]
 	};
 	status.success(res, 0, '请求成功', readme);
+	/* var data: any = {
+		user_name: 's',
+		user_gender: 1,
+		user_age: 2
+	};
+	new User(data).save(function(err, ret) {
+		status.success(res, 0, '添加成功', ret);
+	}); */
 });
 
 // 查询所有
-router.get('/user/find', (req: Request, res: Response, next: NextFunction) => {
-	User.find(async (err, ret) => {
-		if (err) next(err);
-		status.success(res, 0, '请求成功', ret);
-	});
-});
+router.get(
+	'/api/user/find',
+	(req: Request, res: Response, next: NextFunction) => {
+		User.find(async (err, ret) => {
+			if (err) next(err);
+			status.success(res, 0, '请求成功', ret);
+		});
+	}
+);
 
 // 添加用户
-router.post('/user/addUser', async (req, res, next) => {
+router.post('/api/user/addUser', async (req, res, next) => {
 	new User(req.body).save(function(err, ret) {
 		if (err) next(err);
 		status.success(res, 0, '添加成功', ret);
 	});
 });
+
+// 删除用户
+router.delete(
+	'/api/user/delete/:id',
+	async (req: Request, res: Response, next: NextFunction) => {
+		User.findByIdAndRemove(req.params.id, (err, ret: any) => {
+			if (err) return next(err);
+			status.success(res, 0, '删除成功', ret);
+		});
+	}
+);
+
+// 修改用户
+router.put(
+	'/api/user/update/:id',
+	async (req: Request, res: Response, next: NextFunction) => {
+		let updateBody = req.body.query;
+		let id: string | number = req.params.id;
+		User.findByIdAndUpdate(id, updateBody, (err, ret) => {
+			if (err) return next(err);
+			status.success(res, 0, '修改成功');
+		});
+	}
+);
 
 export default router;

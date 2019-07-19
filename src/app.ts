@@ -33,7 +33,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // 配置 404
 app.use((req: Request, res: Response, next: NextFunction) => {
-	res.send('<h2 style="color:#f34f3e">Not Fount 404</h2><hr>');
+	res.status(400).send('<h2 style="color:#f34f3e">Not Fount 404</h2><hr>');
 });
 
 app.listen(3000, () => {
