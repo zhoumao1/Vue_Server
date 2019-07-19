@@ -67,11 +67,10 @@ router.delete(
 
 // 修改用户
 router.put(
-	'/api/user/update/:id',
+	'/api/user/update',
 	async (req: Request, res: Response, next: NextFunction) => {
-		let updateBody = req.body.query;
-		let id: string | number = req.params.id;
-		User.findByIdAndUpdate(id, updateBody, (err, ret) => {
+		let body = req.body;
+		User.findByIdAndUpdate(body.id, body.body, (err, ret) => {
 			if (err) return next(err);
 			status.success(res, 0, '修改成功');
 		});

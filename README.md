@@ -72,23 +72,55 @@ npm run serve
 
 **必选参数 :** 必须如下
 
-| 字段名      | 类型                | 解释   |
-| ----------- | ------------------- | ------ |
-| user_name   | String              | 用户名 |
-| user_age    | Number              | 年龄   |
-| user_gender | Enum[0, 1] (男, 女) | 年龄   |
+| 字段名      | 必选 | 类型                | 说明   |
+| ----------- | ---- | ------------------- | ------ |
+| user_name   | 是   | String              | 用户名 |
+| user_age    | 是   | Number              | 年龄   |
+| user_gender | 是   | Enum[0, 1] (男, 女) | 性别   |
+
+**调用示例 :**
+
+```js
+.post('user/addUser', {
+   user_name: 'xx',
+   user_age: '19',
+   user_gender: '0'
+})
+```
+
+**返回示例 :** 
+
+![返回示例(https://i.ibb.co/N137sfB/image.png)](D:\learnersData\Vue_practice\server\assets\image.png)
+
+
 
 #### 修改用户
 
 **请求类型 :** `PUT`
 
-**接口地址 :** `/addUser/:id`
+**接口地址 :** `/update`
 
-**调用例子 :** `http://127.0.0.1:3000/api/user/update/100`
+**调用例子 :** `http://127.0.0.1:3000/api/user/update`
 
-**必选参数 :** `id`	条件id
+**参数列表 :**
 
+| 参数名 | 必选 | 类型             | 说明                             |
+| ------ | ---- | ---------------- | -------------------------------- |
+| id     | 是   | String \| Number | 根据id修改数据                   |
+| body   | 是   | Object           | 需要修改的内容(需要传入JSON格式) |
 
+**调用示例 :**
+
+```js
+.put('user/update', {
+   id: '5d31288968e3c328c074287f',
+   body: {
+      user_name: 'xx',
+      user_age: '19',
+      user_gender: '0'
+   }
+})
+```
 
 #### 删除用户
 
@@ -98,4 +130,18 @@ npm run serve
 
 **调用例子 :** `http://127.0.0.1:3000/api/user/delete/100`
 
-**必选参数 :** `id`	条件id
+**参数列表 :** 
+
+| 参数名 | 必选 | 类型             | 说明                             |
+| ------ | ---- | ---------------- | -------------------------------- |
+| id     | 是   | String \| Number | 根据id删除数据                   |
+
+**调用示例 :**
+
+```js
+.delete(`user/delete/${id}`)
+```
+
+**返回示例 :**
+
+![返回示例(https://i.ibb.co/NYmsN3H/image.png)](https://i.ibb.co/NYmsN3H/image.png)
