@@ -14,7 +14,7 @@
 ### 安装
 
 ```shell
-git@github.com:zhoumao1/Vue_Server.git
+git clone git@github.com:zhoumao1/Vue_Server.git
 npm install
 ```
 
