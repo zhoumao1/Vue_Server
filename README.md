@@ -60,7 +60,7 @@ npm run serve
 
 **返回数据如下图**
 
-![返回示例](https://i.ibb.co/4wbhNtr/1563417691114.png)
+![返回示例(https://i.ibb.co/4wbhNtr/1563417691114.png)](https://i.ibb.co/4wbhNtr/1563417691114.png)
 
 #### 增加用户
 
@@ -99,4 +99,3 @@ npm run serve
 **调用例子 :** `http://127.0.0.1:3000/api/user/delete/100`
 
 **必选参数 :** `id`	条件id
-
