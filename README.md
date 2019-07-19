@@ -20,9 +20,17 @@ npm install
 
 ### 启动 MongoDB
 
-cd 到有 `data`文件夹的目录运行以下代码
+cd 到有`data`文件夹的目录运行以下代码
 
 ```shell
+mongod
+```
+
+或者
+
+```shell
+cd D:
+mkdir data/db
 mongod
 ```
 
